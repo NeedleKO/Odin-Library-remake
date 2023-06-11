@@ -8,11 +8,15 @@ AddBookBtn.addEventListener("click", () => {
     openPopUpButton(AddBookBtn)
 });
 
+//test
+let isSubmitListenerAdded = false;
+
 function openPopUpButton(AddBookBtn) {
     if (AddBookBtn == null) return
     formContainer.classList.add("active")
     overlay.classList.add("active")
-}
+    form.reset()
+};
 
 //Close popUp by clicking out
 window.addEventListener("click", function(event) {
@@ -47,7 +51,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault()
     addBookToLibrary()
     formContainer.classList.remove("active")
-    overlay.classList.remove("active")
+    overlay.classList.remove("active");
 });
 
 function loopThrough() {
@@ -76,7 +80,11 @@ function loopThrough() {
         cardDiv.appendChild(deleteBtn);
 
         deleteBtn.addEventListener("click", () => {
-            cardDiv.style.display = "none";
+            // cardDiv.style.display = "none";
+            let whatIndex = myLibrary.indexOf(element);
+            myLibrary.splice(whatIndex, 1);
+            cardDiv.remove();
+            console.log(myLibrary)
         });
     })
 };
@@ -84,3 +92,4 @@ function loopThrough() {
 
 
 
+console.log(myLibrary);

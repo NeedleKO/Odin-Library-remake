@@ -86,10 +86,20 @@ input {
 
 /* Cards styles */
 
-.cards_container {
+.meta_container {
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    margin: 30px;
+    margin: 50px;
+    width:50%;
 }
 
 .insideContent {
@@ -100,9 +110,9 @@ input {
     justify-content: center;
     font-size: 30px;
     border: 1px solid black;
-    width: 200px;
-    height: 200px;
-    min-width: 10%;
+    /* width: 200px;
+    height: 200px; */
+    /* min-width: 10%; */
     border-radius: 5px;
 }
 

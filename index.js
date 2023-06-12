@@ -36,6 +36,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+};
+
 function addBookToLibrary() {
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
@@ -63,22 +67,41 @@ function loopThrough() {
         const pPages = document.createElement("p");
         const pRead = document.createElement("p");
         const deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("deleteBtn")
+        
         
         deleteBtn.innerHTML = "Remove"
         
         pTitle.textContent = element.title;
         pAuthor.textContent = element.author;
         pPages.textContent = element.pages;
-        pRead.textContent = element.read;
+        // pRead.textContent = element.read;
+
+        //test
+        const toggleBtn = document.createElement("button");
+        toggleBtn.textContent = element.read ? "Read" : "Not Read";
+        toggleBtn.classList.add("greenBtn");
+        if (!element.read) {
+          toggleBtn.classList.add("red");
+        }
+    
+        toggleBtn.addEventListener("click", () => {
+          element.toggleRead();
+          toggleBtn.textContent = element.read ? "Read" : "Not Read";
+          toggleBtn.classList.toggle("red");
+        });
     
         
         cardsContainer.appendChild(cardDiv);
         cardDiv.appendChild(pAuthor);
         cardDiv.appendChild(pTitle);
         cardDiv.appendChild(pPages);
-        cardDiv.appendChild(pRead);
+        // cardDiv.appendChild(pRead);
         cardDiv.classList.add("insideContent");
+        //test
+        cardDiv.appendChild(toggleBtn);
         cardDiv.appendChild(deleteBtn);
+        pPages.textContent = `${element.pages} pages`;
 
         deleteBtn.addEventListener("click", () => {
             let whatIndex = myLibrary.indexOf(element);

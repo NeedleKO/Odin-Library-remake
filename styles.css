@@ -103,4 +103,46 @@ input {
     width: 200px;
     height: 200px;
     min-width: 10%;
+    border-radius: 5px;
+}
+
+.insideContent > p {
+    font-size: 23px;
+}
+
+.greenBtn {
+    background-color: rgb(22, 211, 22);
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.greenBtn:hover {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.red:hover {
+    background-color: rgb(110, 22, 22);
+}
+
+.deleteBtn {
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-top: 5px;
+}
+
+.deleteBtn:hover {
+    background-color: #979494;
 }

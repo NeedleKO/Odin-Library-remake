@@ -5,7 +5,7 @@ const cardsContainer = document.querySelector(".cards_container")
 const form = document.querySelector(".form");
 
 AddBookBtn.addEventListener("click", () => {
-    openPopUpButton(AddBookBtn)
+    openPopUpButton(AddBookBtn);
 });
 
 //test
@@ -43,9 +43,8 @@ function addBookToLibrary() {
     let read = document.getElementById("read").checked;
     let newBook = new Book(author, title, pages, read);
     myLibrary.push(newBook)
-    console.log(myLibrary)
     loopThrough()
-}
+};
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -55,6 +54,7 @@ form.addEventListener("submit", (event) => {
 });
 
 function loopThrough() {
+    cardsContainer.textContent = '';
     myLibrary.forEach(element => {
         const cardDiv = document.createElement("div");
         
@@ -62,7 +62,7 @@ function loopThrough() {
         const pAuthor = document.createElement("p");
         const pPages = document.createElement("p");
         const pRead = document.createElement("p");
-        const deleteBtn = document.createElement("button")
+        const deleteBtn = document.createElement("button");
         
         deleteBtn.innerHTML = "Remove"
         
@@ -70,6 +70,7 @@ function loopThrough() {
         pAuthor.textContent = element.author;
         pPages.textContent = element.pages;
         pRead.textContent = element.read;
+    
         
         cardsContainer.appendChild(cardDiv);
         cardDiv.appendChild(pAuthor);
@@ -80,16 +81,14 @@ function loopThrough() {
         cardDiv.appendChild(deleteBtn);
 
         deleteBtn.addEventListener("click", () => {
-            // cardDiv.style.display = "none";
             let whatIndex = myLibrary.indexOf(element);
             myLibrary.splice(whatIndex, 1);
             cardDiv.remove();
-            console.log(myLibrary)
+            console.log(myLibrary);
         });
-    })
+    });
 };
 
 
 
 
-console.log(myLibrary);
